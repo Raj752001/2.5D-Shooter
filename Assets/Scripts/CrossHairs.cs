@@ -9,9 +9,11 @@ public class CrossHairs : MonoBehaviour
     public Color dotHighlightColor;
     Color originalColor;
 
+    //LivingEntity player;
+
     private void Start()
     {
-        Cursor.visible = false;
+       // Cursor.visible = false;
         originalColor = dot.color;
     }
 
