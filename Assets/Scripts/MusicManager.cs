@@ -10,12 +10,12 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PlayMusic(menuTheme, 2);
+        AudioManager.instance.PlayMusic(mainTheme, 2);
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)){
-            AudioManager.instance.PlayMusic(mainTheme, 2);
-        }
-    }
+    //void Update()
+   // {
+    //    if (Input.GetKeyDown(KeyCode.Space)){
+    //        AudioManager.instance.PlayMusic(mainTheme, 2);
+    //    }
+   // }
 }

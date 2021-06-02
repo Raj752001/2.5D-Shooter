@@ -8,9 +8,17 @@ public class GameUI : MonoBehaviour
     public Image fadePlane;
     public GameObject gameOverUI;
 
+
     public RectTransform newWaveBanner;
     public Text newWaveTitle;
     public Text newWaveEnemyCount;
+
+    [Header("Main UI")]
+    public GameObject moveJoystick;
+    public GameObject aimJoystick;
+    public GameObject restartButton;
+    public GameObject reloadButton;
+
 
     Spawner spawner;
 
@@ -64,12 +72,17 @@ public class GameUI : MonoBehaviour
     void OnGameOver() {
         StartCoroutine(Fade(Color.clear, Color.black, 1));
         gameOverUI.SetActive(true);
+        moveJoystick.SetActive(false);
+        aimJoystick.SetActive(false);
+        restartButton.SetActive(false);
+        reloadButton.SetActive(false);
     }
 
     IEnumerator Fade(Color from, Color to, float time) {
         float speed = 1 / time;
         float percent = 0;
 
+        yield return new WaitForSeconds(.2f);
         while (percent < 1) {
             percent += Time.deltaTime * speed;
             fadePlane.color = Color.Lerp(from, to, percent);

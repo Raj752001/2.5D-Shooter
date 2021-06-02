@@ -42,8 +42,8 @@ public class Player : LivingEntity
     // Update is called once per frame
     void Update(){
         //Move Input
-        //Vector3 moveInput=new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 moveInput = new Vector3(moveJoystick.Horizontal, 0, moveJoystick.Vertical) + new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        //Vector3 moveInput = new Vector3(moveJoystick.Horizontal, 0, moveJoystick.Vertical);
         Vector3 moveVelocity = moveInput.normalized * moveSpeed;
         controller.Move(moveVelocity);
 
@@ -101,5 +101,11 @@ public class Player : LivingEntity
         //{
         //    gunController.Reload();
         //}
+    }
+
+    public override void Die()
+    {
+        AudioManager.instance.PlaySound("Player Death", transform.position);
+        base.Die();
     }
 }

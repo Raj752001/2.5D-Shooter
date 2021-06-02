@@ -1662,7 +1662,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3307,7 +3307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.9858491, b: 0.9858491, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5567,7 +5567,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1748352777}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2119609230}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -6952,7 +6952,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6960,14 +6959,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -7149,6 +7140,10 @@ MonoBehaviour:
   newWaveBanner: {fileID: 841568265}
   newWaveTitle: {fileID: 688481802}
   newWaveEnemyCount: {fileID: 462523984}
+  moveJoystick: {fileID: 2119609230}
+  aimJoystick: {fileID: 2131930009}
+  restartButton: {fileID: 748742037}
+  reloadButton: {fileID: 1447031357}
 --- !u!1 &986528736
 GameObject:
   m_ObjectHideFlags: 0
@@ -9571,7 +9566,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1904160076}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2131930009}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -9925,7 +9920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -81, y: -367}
+  m_AnchoredPosition: {x: -133, y: -278}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5000005, y: 0.5000002}
 --- !u!114 &1447031359
@@ -11753,7 +11748,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 230
+      value: 240
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -11803,17 +11798,17 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -12427,7 +12422,7 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -230
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -12477,17 +12472,17 @@ PrefabInstance:
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6
+      value: 0.60000014
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -13272,6 +13267,7 @@ GameObject:
   - component: {fileID: 2000098621}
   - component: {fileID: 2000098620}
   - component: {fileID: 2000098622}
+  - component: {fileID: 2000098623}
   m_Layer: 0
   m_Name: Audio Managar
   m_TagString: Untagged
@@ -13320,6 +13316,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTheme: {fileID: 8300000, guid: 1234dda0bd6c5bb41b7929bb819a5305, type: 3}
   menuTheme: {fileID: 8300000, guid: f665e9df422d32e449df6bb2b7071c8f, type: 3}
+--- !u!114 &2000098623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000098619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0e7631cbc110e64f866bb4566ff46c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroups:
+  - groupID: Impact
+    group:
+    - {fileID: 8300000, guid: c3150ab2b51b33a498d9a052151490d5, type: 3}
+    - {fileID: 8300000, guid: f6ca5816d945f534692d64ac875ea8d0, type: 3}
+    - {fileID: 8300000, guid: 063185af840a9eb41a7c32767c36ad80, type: 3}
+  - groupID: Enemy Death
+    group:
+    - {fileID: 8300000, guid: 45090c1b8b9b1704eb07f40fcd4d8cb4, type: 3}
+    - {fileID: 8300000, guid: 9f7134cf3897136408a497d1c0ca3985, type: 3}
+  - groupID: Enemy Attack
+    group:
+    - {fileID: 8300000, guid: dcfae18a9ba7e2f4f98e2d58ffd07d3f, type: 3}
+  - groupID: Level Complete
+    group:
+    - {fileID: 8300000, guid: b47ba52b2587f2e428a1bbda976b7cc5, type: 3}
+  - groupID: Player Death
+    group:
+    - {fileID: 8300000, guid: 20ca5e05ac255174ba7eca8ec8ca771f, type: 3}
 --- !u!1 &2002570968
 GameObject:
   m_ObjectHideFlags: 0
@@ -14021,6 +14048,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113581401}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2119609230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 1748352777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2125757491
 GameObject:
   m_ObjectHideFlags: 0
@@ -14099,6 +14132,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125757491}
   m_CullTransparentMesh: 0
+--- !u!1 &2131930009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 1904160076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2141341829
 GameObject:
   m_ObjectHideFlags: 0
