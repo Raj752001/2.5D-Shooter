@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
@@ -8,30 +9,40 @@ public class GameUI : MonoBehaviour
     public Image fadePlane;
     public GameObject gameOverUI;
 
-
     public RectTransform newWaveBanner;
     public Text newWaveTitle;
     public Text newWaveEnemyCount;
-
-    [Header("Main UI")]
-    public GameObject moveJoystick;
-    public GameObject aimJoystick;
-    public GameObject restartButton;
-    public GameObject reloadButton;
+    public Text scoreUI;
+    public Text gameOverScoreUI;
+    public Text highestScoreUI;
+    public RectTransform healthBar;
 
 
     Spawner spawner;
+    Player player;
 
     void Start()
     {
-        FindObjectOfType<Player>().OnDeath += OnGameOver;
-        
+        player=FindObjectOfType<Player>();
+        player.OnDeath += OnGameOver;
+        fadePlane.gameObject.SetActive(false);
     }
 
     private void Awake()
     {
         spawner = FindObjectOfType<Spawner>();
         spawner.OnNewWave += OnNewWave;
+    }
+
+    private void Update()
+    {
+        scoreUI.text = ScoreKeeper.score.ToString("D6");
+        float healthPercent = 0;
+        if (player != null)
+        {
+            healthPercent = player.health / player.startingHealth;
+        }   
+        healthBar.localScale = new Vector3(healthPercent, 1, 1);
     }
 
     void OnNewWave(int newWave) {
@@ -70,12 +81,20 @@ public class GameUI : MonoBehaviour
     }
 
     void OnGameOver() {
+        fadePlane.gameObject.SetActive(true);
         StartCoroutine(Fade(Color.clear, Color.black, 1));
+        int score = ScoreKeeper.score;
+        int highestScore = PlayerPrefs.GetInt("Highest Score", score);
+        if (score > highestScore)
+        {
+            highestScore = score;
+        }
+        PlayerPrefs.SetInt("Highest Score", highestScore);
+        highestScoreUI.text = "Highest Score: " + highestScore.ToString("D6");
+        gameOverScoreUI.text = "Your Score: " + scoreUI.text;
+        healthBar.transform.parent.gameObject.SetActive(false);
         gameOverUI.SetActive(true);
-        moveJoystick.SetActive(false);
-        aimJoystick.SetActive(false);
-        restartButton.SetActive(false);
-        reloadButton.SetActive(false);
+        AudioManager.instance.SetVolume(.3f, AudioManager.AudioChannel.Music);
     }
 
     IEnumerator Fade(Color from, Color to, float time) {
@@ -91,6 +110,8 @@ public class GameUI : MonoBehaviour
     }
 
     public void StartNewGame() {
-        Application.LoadLevel("Game");
+        AudioManager.instance.SetVolume(.7f, AudioManager.AudioChannel.Music);
+        SceneManager.LoadScene(0);
+        //Application.LoadLevel("Game");
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5757614909051459487}
   - component: {fileID: 7429581675618651762}
-  - component: {fileID: 4919271035156226658}
+  - component: {fileID: -882111328212165387}
   m_Layer: 0
   m_Name: navmesh Mask
   m_TagString: Untagged
@@ -48,7 +48,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
---- !u!65 &4919271035156226658
+--- !u!65 &-882111328212165387
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

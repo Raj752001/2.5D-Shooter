@@ -6,9 +6,9 @@ public class AudioManager : MonoBehaviour
 {
     public enum AudioChannel { Master, Sfx, Music};
 
-    float masterVolumePercent = 1;
-    float sfxVolumePercent = 1;
-    float musicVolumePercent = .8f;
+    float masterVolumePercent = .9f;
+    public float sfxVolumePercent = 1f;
+    public float musicVolumePercent = .7f;
 
     AudioSource sfx2DSource;
     AudioSource[] musicSources;
@@ -37,6 +37,7 @@ public class AudioManager : MonoBehaviour
             {
                 GameObject newMusicSource = new GameObject("Music Source " + (i + 1));
                 musicSources[i] = newMusicSource.AddComponent<AudioSource>();
+                musicSources[i].loop = true;
                 newMusicSource.transform.parent = transform;
             }
             GameObject newSfx2DSource = new GameObject("2D Sfx Source");
@@ -46,10 +47,15 @@ public class AudioManager : MonoBehaviour
             audioListener = transform.GetChild(0);
             playerT = FindObjectOfType<Player>().transform;
 
-            masterVolumePercent = PlayerPrefs.GetFloat("master vol", masterVolumePercent);
-            sfxVolumePercent = PlayerPrefs.GetFloat("sfx vol", sfxVolumePercent);
-            musicVolumePercent = PlayerPrefs.GetFloat("music vol", musicVolumePercent);
+            masterVolumePercent = PlayerPrefs.GetFloat("master1 vol", masterVolumePercent);
+            sfxVolumePercent = PlayerPrefs.GetFloat("sfx1 vol", sfxVolumePercent);
+            musicVolumePercent = PlayerPrefs.GetFloat("music1 vol", musicVolumePercent);
         }
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        playerT = FindObjectOfType<Player>().transform;
     }
 
     private void Update()
@@ -86,7 +92,7 @@ public class AudioManager : MonoBehaviour
         activeMusicSourceIndex = 1 - activeMusicSourceIndex;
         musicSources[activeMusicSourceIndex].clip = clip;
         musicSources[activeMusicSourceIndex].Play();
-
+       // musicSources[activeMusicSourceIndex].loop = true;
         StartCoroutine(AnimateMusicCrossfade(fadeDuration));
     }
 
