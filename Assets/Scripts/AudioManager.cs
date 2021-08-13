@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class AudioManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
             library = GetComponent<SoundLibrary>();
+
+            SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
 
             musicSources = new AudioSource[2];
             for (int i = 0; i < 2; i++)
@@ -95,6 +98,10 @@ public class AudioManager : MonoBehaviour
        // musicSources[activeMusicSourceIndex].loop = true;
         StartCoroutine(AnimateMusicCrossfade(fadeDuration));
     }
+    public void PlayMusic(string soundName, float fadeDuration = 1)
+    {
+        PlayMusic(library.GetClipFromName(soundName), fadeDuration);
+    }
 
     public void PlaySound(AudioClip clip, Vector3 pos) {
         if (clip != null)
@@ -117,7 +124,7 @@ public class AudioManager : MonoBehaviour
         float percent = 0;
 
         while (percent < 1) {
-            percent += Time.deltaTime * 1 / duration;
+            percent += Time.unscaledDeltaTime * 1 / duration;
             musicSources[activeMusicSourceIndex].volume = Mathf.Lerp(0, musicVolumePercent * masterVolumePercent, percent);
             musicSources[1-activeMusicSourceIndex].volume = Mathf.Lerp(musicVolumePercent * masterVolumePercent, 0, percent);
             yield return null;

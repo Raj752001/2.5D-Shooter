@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.PlayMusic(mainTheme, 2);
+      //  AudioManager.instance.PlayMusic(mainTheme, 2);
     }
     //void Update()
    // {

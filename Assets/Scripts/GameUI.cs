@@ -114,4 +114,8 @@ public class GameUI : MonoBehaviour
         SceneManager.LoadScene(0);
         //Application.LoadLevel("Game");
     }
+
+    public void OpenMenu() {
+        Application.LoadLevelAdditive("Menu");
+    }
 }
